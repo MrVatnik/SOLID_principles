@@ -12,7 +12,7 @@ namespace SRP //Single Responsibility Principle
     //This principle is necessary when it is necessary to change the program.
     //In the case where it is not applied, changes in one object may lead to changes in another, and so on.
     //Once it is applied, all changes that need to be made are minimized.
-    //For example, here, if you need to add a new report output method, you can easily add it to the printer method.
+    //For example, here, if you need to add a new report output method, you can easily add it to the Printer class, without changing anything, even other methods in Printer class.
     class Report
     {
         public string Text { get; set; } = "";
@@ -25,7 +25,9 @@ namespace SRP //Single Responsibility Principle
         public void GoToPage(int pageNumber) =>
             Console.WriteLine($"Go to page {pageNumber}");
     }
-    //  обязанность - печать отчета
+
+
+    //  responsible for Report printing
     class Printer
     {
         public void PrintReport(Report report)
